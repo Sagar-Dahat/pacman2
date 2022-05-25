@@ -1,4 +1,4 @@
-/opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner \
+sh /opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner \
   -Dsonar.projectKey=Pacman-CICD \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://10.18.99.152:9000 \
