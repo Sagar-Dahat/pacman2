@@ -6,8 +6,8 @@ def feedback(status,smsg,fmsg) {
             case 'SUCCESS': 
                 mattermostSend (
                     color: "good",
-                    channel: 'Sunfire-CICD-Pacman',
-                    endpoint: 'http://10.18.99.155:8065/hooks/dr1fon6aqtfydbe1srk4t7ujec',
+                    channel: 'Multibranch-pipeline',
+                    endpoint: 'http://10.18.99.155:8065/hooks/qakfitck8fr57gio1hzo3u8enc',
                     message: "${smsg}"
                 )  
                 break;
@@ -16,7 +16,7 @@ def feedback(status,smsg,fmsg) {
                 mattermostSend (
                     color: "danger",
                     channel: 'Sunfire-CICD-Pacman',
-                    endpoint: 'http://10.18.99.155:8065/hooks/dr1fon6aqtfydbe1srk4t7ujec',
+                    endpoint: 'http://10.18.99.155:8065/hooks/qakfitck8fr57gio1hzo3u8enc',
                     message: "${fmsg}"
                 )
                 break;
@@ -48,6 +48,7 @@ pipeline {
         }
         stage('sonar-scanner') {
             steps {
+		sh 'sudo chmod 777 sonarqube.sh'
                 sh './sonarqube.sh'
                 feedback("${currentBuild.currentResult}",'Code Quality Passed','Code Quality Failed')
             }
