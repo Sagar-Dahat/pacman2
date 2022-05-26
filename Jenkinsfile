@@ -77,7 +77,7 @@ pipeline {
         stage('push image') {
             steps {
                 sh 'sudo docker push 399278/sunfiretechnologies:v$BUILD_NUMBER'
-                feedback("${currentBuild.currentResult}",'Image to Harbor Successful','Image to Harbor Failed')
+                feedback("${currentBuild.currentResult}",'Image to Harbor Successful','Image to Harbor Failed1')
             }
         }
         
