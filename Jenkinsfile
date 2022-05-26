@@ -49,7 +49,8 @@ pipeline {
         stage('sonar-scanner') {
             steps {
 		sh 'sudo chmod 777 sonarqube.sh'
-                sh './sonarqube.sh'
+		sh 'cp sonarqube.sh pacman.v$BUILD_NUMBER'
+		sh './sonarqube.sh'
                 feedback("${currentBuild.currentResult}",'Code Quality Passed','Code Quality Failed')
             }
         }
